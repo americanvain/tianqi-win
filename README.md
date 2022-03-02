@@ -1,0 +1,2 @@
+# tianqi-win
+ for windows
