@@ -28,7 +28,8 @@ def pipei(ori_text):
     xiangduishidu=[]
     fengli=[]
     time_list=[]
-    right_now_time=datetime.strptime(date_text,'%Y%m%d%H%M')
+    right_now_start_time=datetime.strptime(date_text,'%Y%m%d%H%M')
+    right_now_time=right_now_start_time
     for i in jieguo_list:
         right_now_time=right_now_time-timedelta(hours=1)
         time_list.append(str(right_now_time))
@@ -36,16 +37,13 @@ def pipei(ori_text):
         kongqizhiliang.append(i['od28'])
         xiangduishidu.append(i['od27'])
         fengli.append(str(i['od24'])+str(i['od25'])+'级')
-        fp.write(str(right_now_time))
-        fp.write(i['od22']+' ')
-        fp.write(i['od28']+' ')
-        fp.write(i['od27']+' ')
-        fp.write(i['od24']+i['od25']+'级'+' ')
-
-    excl_test.excel_process(jieguo_list,right_now_time)
-
-    # excl_test.excel_process(time_list,tem_list,kongqizhiliang,xiangduishidu,fengli)
+        fp.write(str(right_now_time)+'\n')
+        fp.write(str(i['od22'])+' ')
+        fp.write(str(i['od28'])+' ')
+        fp.write(str(i['od27'])+' ')
+        fp.write(str(i['od24'])+str(i['od25'])+'级'+' ')
     fp.close()
+    excl_test.excel_process(jieguo_list,right_now_start_time)
     pass
 
 
