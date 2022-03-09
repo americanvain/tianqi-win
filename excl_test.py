@@ -41,9 +41,6 @@ def excel_process(jieguo_list,time_now):
             time_to_write=lasttime+timedelta(hours=1)
 
     for index in range(cout-1,-1,-1):
-        print(jieguo_list[index])
-        print(jieguo_list[index]['od22'])
-        print(type(jieguo_list[index]['od22']))
         ws.append([str(time_to_write),jieguo_list[index]['od22'],jieguo_list[index]['od28'],jieguo_list[index]['od27'],jieguo_list[index]['od24']+jieguo_list[index]['od25']+'级'])
         time_to_write=time_to_write+timedelta(hours=1)
 

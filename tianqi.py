@@ -23,20 +23,10 @@ def pipei(ori_text):
         jieguo =i.group()
         jieguo_list.append(json.loads(jieguo))
 
-    tem_list=[]
-    kongqizhiliang=[]
-    xiangduishidu=[]
-    fengli=[]
-    time_list=[]
     right_now_start_time=datetime.strptime(date_text,'%Y%m%d%H%M')
     right_now_time=right_now_start_time
     for i in jieguo_list:
         right_now_time=right_now_time-timedelta(hours=1)
-        time_list.append(str(right_now_time))
-        tem_list.append(i['od22'])
-        kongqizhiliang.append(i['od28'])
-        xiangduishidu.append(i['od27'])
-        fengli.append(str(i['od24'])+str(i['od25'])+'级')
         fp.write(str(right_now_time)+'\n')
         fp.write(str(i['od22'])+' ')
         fp.write(str(i['od28'])+' ')
